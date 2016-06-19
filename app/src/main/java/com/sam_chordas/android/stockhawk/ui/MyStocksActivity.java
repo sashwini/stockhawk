@@ -95,7 +95,6 @@ public class MyStocksActivity extends AppCompatActivity
                         // item click shows trend for that symbol
                         mCursor.moveToPosition(position);
                         String symbol = mCursor.getString(mCursor.getColumnIndex("symbol"));
-                        System.out.println("Symbol:" + symbol);
                         Intent intent = new Intent(MyStocksActivity.this, StockChartActivity.class);
                         intent.putExtra("symbol", symbol);
                         MyStocksActivity.this.startActivity(intent);
@@ -127,7 +126,7 @@ public class MyStocksActivity extends AppCompatActivity
                                             new String[]{input.toString()}, null);
                                     if (c.getCount() != 0) {
                                         Toast toast =
-                                                Toast.makeText(MyStocksActivity.this, "This stock is already saved!",
+                                                Toast.makeText(MyStocksActivity.this, R.string.existing_stock_err,
                                                         Toast.LENGTH_LONG);
                                         toast.setGravity(Gravity.CENTER, Gravity.CENTER, 0);
                                         toast.show();
